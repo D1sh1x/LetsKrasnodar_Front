@@ -1,0 +1,577 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+
+:root {
+    --primary: #2E8B57;
+    --primary-light: #3CB371;
+    --secondary: #F0EAD6;
+    --accent: #D4EDD4;
+    --dark: #2F4F4F;
+    --gradient: linear-gradient(135deg, #2E8B57, #3CB371);
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.8);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+header {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 1.5rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--glass-shadow);
+    transition: all 0.3s ease;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Comfortaa', cursive;
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-light);
+    transition: width 0.3s ease;
+}
+
+.logo:hover::after {
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+}
+
+nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--glass-bg);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+nav a:hover {
+    color: var(--text-primary);
+    transform: translateY(-2px);
+}
+
+nav a:hover::before {
+    transform: translateX(0);
+}
+
+.slider {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+}
+
+.slides-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+    transition: transform 0.5s ease;
+}
+
+.slide:hover img {
+    transform: scale(1.05);
+}
+
+.dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 2;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 30px;
+    backdrop-filter: blur(5px);
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dot:hover {
+    transform: scale(1.2);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.dot.active {
+    background: var(--text-primary);
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    padding: 0 2rem;
+}
+
+.hero-content {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 4rem;
+    border-radius: 30px;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    transform: translateY(0);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    max-width: 800px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.hero-content:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    font-weight: 700;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero p {
+    font-size: 1.4rem;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+.popular {
+    padding: 4rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+.popular .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popular h2 {
+    font-size: 2.5rem;
+    color: var(--text-primary);
+    margin-bottom: 3rem;
+    text-align: center;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--glass-shadow);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    border: 1px solid var(--glass-border);
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card h3 {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.card p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+footer {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--text-primary);
+    padding: 3rem 0;
+    margin-top: 4rem;
+    border-top: 1px solid var(--glass-border);
+}
+
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+.social-icons a {
+    color: var(--text-primary);
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+    background: var(--glass-bg);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+}
+
+.social-icons a:hover {
+    transform: translateY(-5px);
+    background: var(--glass-bg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 992px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .popular h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 0.8rem 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .container {
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 0 1rem;
+    }
+
+    .logo {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+        text-align: center;
+    }
+
+    nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    nav a {
+        padding: 0.4rem 1rem;
+        font-size: 0.9rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+    }
+
+    .hero {
+        padding-top: 80px;
+        height: calc(100vh - 80px);
+    }
+
+    .hero-content {
+        padding: 2rem;
+        margin: 0 1rem;
+        border-radius: 20px;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .popular {
+        padding: 3rem 0;
+        margin-top: 2rem;
+    }
+
+    .popular h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        padding: 0 1rem;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    .card {
+        border-radius: 15px;
+    }
+
+    .card img {
+        height: 220px;
+    }
+
+    .card-content {
+        padding: 1.5rem;
+    }
+
+    .card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .card p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .dots {
+        bottom: 15px;
+        gap: 8px;
+        padding: 8px 16px;
+        background: rgba(0, 0, 0, 0.4);
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    footer {
+        padding: 2rem 0;
+        margin-top: 2rem;
+    }
+
+    .social-icons {
+        gap: 1rem;
+    }
+
+    .social-icons a {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 0.6rem 0;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    nav a {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .hero {
+        padding-top: 70px;
+        height: calc(100vh - 70px);
+    }
+
+    .hero-content {
+        padding: 1.5rem;
+        margin: 0 0.8rem;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .popular {
+        padding: 2rem 0;
+    }
+
+    .popular h2 {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .cards {
+        gap: 1.2rem;
+    }
+
+    .card img {
+        height: 200px;
+    }
+
+    .card-content {
+        padding: 1.2rem;
+    }
+
+    .card h3 {
+        font-size: 1.2rem;
+    }
+
+    .card p {
+        font-size: 0.9rem;
+    }
+
+    .dots {
+        bottom: 10px;
+        gap: 6px;
+        padding: 6px 12px;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    footer {
+        padding: 1.5rem 0;
+    }
+
+    .social-icons a {
+        width: 40px;
+        height: 40px;
+        font-size: 1.3rem;
+    }
+} 

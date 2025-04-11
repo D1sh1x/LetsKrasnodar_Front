@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет - Lets Krasnodar</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Lets Krasnodar</div>
+                <nav class="main-nav">
+                    <a href="../Lending/index.html" class="nav-link"><i class="fas fa-home"></i> Главная</a>
+                    <a href="#feed" class="nav-link"><i class="fas fa-newspaper"></i> Лента</a>
+                    <a href="#profile" class="nav-link active"><i class="fas fa-user"></i> Профиль</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="profile-container">
+        <div class="container">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <img src="../Lending/img/default-avatar.jpg" alt="Аватар пользователя">
+                    <button class="edit-avatar"><i class="fas fa-camera"></i></button>
+                </div>
+                <div class="profile-info">
+                    <h1>Иван Иванов</h1>
+                    <p class="profile-status">Путешественник</p>
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">12</span>
+                            <span class="stat-label">Путешествий</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">45</span>
+                            <span class="stat-label">Фото</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">128</span>
+                            <span class="stat-label">Подписчиков</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-content">
+                <div class="profile-tabs">
+                    <button class="tab-btn active" data-tab="trips">Мои путешествия</button>
+                    <button class="tab-btn" data-tab="photos">Фотографии</button>
+                    <button class="tab-btn" data-tab="settings">Настройки</button>
+                </div>
+
+                <div class="tab-content active" id="trips">
+                    <div class="trips-grid">
+                        <div class="trip-card">
+                            <img src="../Lending/img/Горный курорт.jpg" alt="Горный курорт">
+                            <div class="trip-info">
+                                <h3>Поход на гору Фишт</h3>
+                                <p class="trip-date">15-17 июня 2024</p>
+                                <p class="trip-desc">Трехдневный поход с ночевкой в палатках</p>
+                                <div class="trip-stats">
+                                    <span><i class="fas fa-users"></i> 8 участников</span>
+                                    <span><i class="fas fa-heart"></i> 24</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="trip-card">
+                            <img src="../Lending/img/Побережье.jpg" alt="Черноморский пляж">
+                            <div class="trip-info">
+                                <h3>Отдых в Анапе</h3>
+                                <p class="trip-date">1-7 августа 2024</p>
+                                <p class="trip-desc">Пляжный отдых с семьей</p>
+                                <div class="trip-stats">
+                                    <span><i class="fas fa-users"></i> 4 участника</span>
+                                    <span><i class="fas fa-heart"></i> 18</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="photos">
+                    <div class="photos-grid">
+                        <div class="photo-item">
+                            <img src="../Lending/img/Горный курорт.jpg" alt="Фото">
+                            <div class="photo-overlay">
+                                <button class="photo-action"><i class="fas fa-heart"></i></button>
+                                <button class="photo-action"><i class="fas fa-share"></i></button>
+                            </div>
+                        </div>
+                        <div class="photo-item">
+                            <img src="../Lending/img/Побережье.jpg" alt="Фото">
+                            <div class="photo-overlay">
+                                <button class="photo-action"><i class="fas fa-heart"></i></button>
+                                <button class="photo-action"><i class="fas fa-share"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="settings">
+                    <form class="settings-form">
+                        <div class="form-group">
+                            <label for="name">Имя</label>
+                            <input type="text" id="name" value="Иван">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" value="ivan@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Статус</label>
+                            <input type="text" id="status" value="Путешественник">
+                        </div>
+                        <div class="form-group">
+                            <label for="bio">О себе</label>
+                            <textarea id="bio">Люблю путешествовать по Краснодарскому краю</textarea>
+                        </div>
+                        <button type="submit" class="save-btn">Сохранить изменения</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-vk"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+            </div>
+            <p>&copy; 2024 Lets Krasnodar</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
